@@ -21,13 +21,101 @@ This will help make code easier to understand and maintain in the future.
 Basics
 ======
 
+File Structure
+--------------
+
+In my main Sass file you'll find _variables and a couple of 'main' files (typically screen.scss, ie.scss etc.)
+
+I then have three folders:
+
+1. Media (for _bp1, _bp2 etc.)
+2. Tools (for mixins, helpers and basic styled objects/modules)
+3. Theme (styles specific to this site - see below)
+
+The Theme will usually contain 4 files
+
+* Form (for extending base form styles)
+* Typography (all the base type, links, quotes etc. plus importing fonts & icons)
+* Site (site-wide elements e.g. body, .container, .header, .footer etc.)
+* Pages (everything else that makes up the site, starting with common elements through to page specific stuff)
+
+NOTE: Considering splitting the _page file into _objects and _theme (objects will contain the classes for reusable objects, everyhting else would go in theme)
+
+
+
+Naming 'Conventions'
+--------------------
+
+I like BEM. I understand how it works in the context of my files and I think it looks quite nice too. I can't say I adhere to it strictly, I just use it where it feels appropriate.
+
+For example:
+
+```
+.header {}
+
+.header__contact {}
+
+.header--mobile {}
+```
+
+So, header is the BLOCK. header__contact is an element within the header block. header--mobile is an amended version of the header, for mobile.
+
+Read some more on this at http://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/
+
+
+
 Spacing
 -------
-
 
 I like some room between sections, 5 clear lines is usually enough.
 
 Between sub-sections and other chunks of code within a section, I'll use 3 clear lines.
+
+
+
+Order of styles
+----------------
+
+I'll always @include and @extend at the start (top). Generally though I don't have an order for styles, recently however I've found myself doing something like this
+
+```
+.class {
+
+  // extending and including at the top
+  @include border-box();
+  @extend %clearfix;
+
+  // position
+  display: block;
+  position: absolute;
+  top: 0px;
+  left: 10px;
+  z-index: 99;
+  float: none;
+  clear: right;
+  
+  // size
+  width: 200px;
+  height: 50px;
+  
+  // spacing
+  margin: 20px;
+  padding: 10px;
+  
+  // styling
+  border: 1px solid white;
+  background: red;
+  color: white;
+  
+  // text
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: lowercase;
+  
+  // everything else
+}
+```
+
 
 ***
 
