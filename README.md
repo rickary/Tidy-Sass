@@ -1,5 +1,5 @@
-Tidy CSS/Sass
-=============
+Tidy Sass
+=========
 
 I do like a tidy stylesheet. When I first found [@csswizardry's](https://twitter.com/csswizardry) 
 [CSS-Guidelines](https://github.com/csswizardry/CSS-Guidelines) I loved them and tried to stick to those principles
@@ -21,25 +21,38 @@ This will help make code easier to understand and maintain in the future.
 Basics
 ======
 
+One of the great things about Sass is that you can have a load of _partial.scss files and keep everything nice and clean. Then I use Grunt to minify the css in production.
+
 File Structure
 --------------
+In my Sass folder there lives just a couple of files:
+* master.scss (no styles live here, just import partials)
+* ie.scss (just in case we need it for older versions of IE)
+* _variables.scss (really important file containing all the Sass variables we'll be using in this project)
 
-In my main Sass file you'll find _variables and a couple of 'main' files (typically screen.scss, ie.scss etc.)
+Then, I have three folders:
+* Base
+* Theme
+* Tools
 
-I then have three folders:
+Base contains:
+* _forms.scss (basic form styling)
+* _print.scss (a print stylesheet)
+* _typography.scss (type and that)
 
-1. Media (for _bp1, _bp2 etc.)
-2. Tools (for mixins, helpers and basic styled objects/modules)
-3. Theme (styles specific to this site - see below)
+You shouldn't need to change these files, they take values from the _variables file and you can expand on them elsewhere, 'cascade' if you will.
 
-The Theme will usually contain 4 files
+Theme contains:
+* _objects.scss (reusable objects)
+* _shame.scss (temporary store for quick fixes… temporary)
+* _site.scss (site-wide styles)
+* _theme.scss (page specific styles)
 
-* Form (for extending base form styles)
-* Typography (all the base type, links, quotes etc. plus importing fonts & icons)
-* Site (site-wide elements e.g. body, .container, .header, .footer etc.)
-* Pages (everything else that makes up the site, starting with common elements through to page specific stuff)
-
-NOTE: Considering splitting the _page file into _objects and _theme (objects will contain the classes for reusable objects, everyhting else would go in theme)
+Tools contains:
+* _reset.scss (your standard reset)
+* _mixins.scss (things we @include)
+* _objects.scss (turn them on/off in _variables)
+* _helpers.scss (things we @extend)
 
 
 
@@ -126,7 +139,7 @@ Comments
 Intro
 -----
 
-At the top of each sass file in the project I put in the title and a brief description. 
+At the top of each Sass file in the project I put in the title and a brief description. 
 
 ```
 // Title of the File
