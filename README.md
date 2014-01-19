@@ -222,4 +222,4 @@ Read more about phases & mesophases at http://benedfit.com/2013/06/atomic-design
 
 In some of my older projects there'll be a media folder containing a new partial for each breakpoint, which are @import -ed in the master.scss file.
 
-BUT things changed and I'm reverting back to inline media queries. I just think they make things a bit clearer and using a version of [@StuRobson's](https://twitter.com/sturobson) excellent [media query mixin](http://alwaystwisted.com/post.php?s=2013-04-01-my-media-query-mixin)media query mixin makes it a bit of a doddle. We'll see how it goes.
+BUT things changed and I'm reverting back to inline media queries. I just think they make things a bit clearer and using a version of [@StuRobson's](https://twitter.com/sturobson) excellent [media query mixin](http://alwaystwisted.com/post.php?s=2013-04-01-my-media-query-mixin) makes it a bit of a doddle. We'll see how it goes.
