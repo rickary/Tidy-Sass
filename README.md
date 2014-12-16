@@ -21,39 +21,22 @@ This will help make code easier to understand and maintain in the future.
 Basics
 ======
 
-One of the great things about Sass is that you can have a load of _partial.scss files and keep everything nice and clean. Then I use Grunt to minify the css in production.
+One of the great things about Sass is that you can have a load of _partial.scss files and keep everything nice and clean. Then I use Gulp to minify the css in production.
 
 File Structure
 --------------
 In my Sass folder there lives just a couple of files:
 * master.scss (no styles live here, just import partials)
-* ie.scss (just in case we need it for older versions of IE)
 * _variables.scss (really important file containing all the Sass variables we'll be using in this project)
+* _config.scss (allows you to optionally include objects)
 
-Then, I have three folders:
-* Base
-* Theme
-* Tools
-
-Base contains:
-* _forms.scss (basic form styling)
-* _print.scss (a print stylesheet)
-* _typography.scss (type and that)
-
-You shouldn't need to change these files, they take values from the _variables file and you can expand on them elsewhere, 'cascade' if you will.
-
-Theme contains:
-* _objects.scss (reusable objects)
-* _shame.scss (temporary store for quick fixes… temporary)
-* _site.scss (site-wide styles)
-* _theme.scss (page specific styles)
-
-Tools contains:
-* _reset.scss (your standard reset)
-* _mixins.scss (things we @include)
-* _objects.scss (turn them on/off in _variables)
-* _helpers.scss (things we @extend)
-
+Then, I have six folders:
+* Tools  (reset, mixins etc.)
+* Base (html, body, h1-h6, p, form etc.)
+* Layout (grids & wrappers)
+* Objects (buttons, icons, media object etc.)
+* Modules (header, footer, navigation etc.)
+* Pages (page-specific styles—if any)
 
 
 Naming 'Conventions'
@@ -142,11 +125,11 @@ Intro
 At the top of each Sass file in the project I put in the title and a brief description. 
 
 ```
-// Title of the File
-// =================
+//  Title of the File
+//  =================
 
-// For:
-// Description of what the file contains
+//  For:
+//  Description of what the file contains
 ```
 
 Contents
@@ -155,11 +138,12 @@ Contents
 Next comes the contents.
 
 ```
-//
-//	 Section-1...............brief description
+
+//  Section-1...............brief description
 //       Sub-Section.........brief description
-//   Section-2...............brief description
-//
+
+//  Section-2...............brief description
+
 ```
 
 Sections
@@ -170,25 +154,22 @@ I start each new section with a large block like this.
 
 ```
 //------------------------------------//
-//    !Section-Title
+//  Section-Title
 //------------------------------------//
 ```
-
-*The __!__ works to allow you to quickly search for a section. 
-__!__ is particularly useful if you use Coda 2 as this places a manual bookmark in your code that shows up in the insepctor.*
 
 Following the title block, I'll then give some more information about the code that follows.
 The examples below are optional, I'll just use them as/when needed.
 
 ```
-// Hat Tip:
-// Attribution/link to the author etc.
+//  Hat Tip:
+//  Attribution/link to the author etc.
 
-// Usage:
-// Explain how the code is used (more useful for Mixins)
+//  Usage:
+//  Explain how the code is used (more useful for Mixins)
 
-// Notes:
-// Anything else
+//  Notes:
+//  Anything else
 ```
 
 Sub-Sections
@@ -198,27 +179,24 @@ A sub-section has it's own type of title block.
 
 ```
 // 
-// ! -Sub-Section
+//  Sub-Section
 //
 ```
 
-The space after the __!__ also shows up in Coda 2 and creates a nicely indented bookmark in the file inspector.
 
 Inline Comments
 ---------------
 I only ever use single line commenting - I just think it looks neater.
 
 ``
-//	comment goes here
+//  comment goes here
 ``
 ***
 
 Media Queries
 =============
 
-Breakpoints are set in _variables.scss. These are generally $phase-one, $phase-two etc. for larger breakpoints and $mesophase-one etc. for smaller breakpoints.
-
-Read more about phases & mesophases at http://benedfit.com/2013/06/atomic-design-phases-and-mesophases/
+Breakpoints are set in _variables.scss. These are generally $mobile, $tablet and $desktop for larger breakpoints.
 
 In some of my older projects there'll be a media folder containing a new partial for each breakpoint, which are @import -ed in the master.scss file.
 
